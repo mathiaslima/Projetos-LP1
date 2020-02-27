@@ -1,7 +1,3 @@
-# Projetos-LP1
-Projetos de LP
-
-
 # Primeiro Projeto Básico de LP
 
 # SUDOKU
