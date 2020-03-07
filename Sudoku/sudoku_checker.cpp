@@ -1,6 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <sstream>
+#include <vector>
 
 #define EMPTY short(0)
 #define SIZE 9
@@ -18,48 +19,54 @@ void print( short b[SIZE][SIZE] )
     }
 
 }
-// int CheckerColsAndRows( short b[SIZE][SIZE]){
-//     int aux[SIZE][SIZE];
-//     int aux2[SIZE][SIZE];
-//     int cont(0);
-//     for (int j(0); j < SIZE; ++j)
-//     {
-//         for (int i(0); i < SIZE; ++i)
-//         {
-//             aux[b[j][i]-1]++;
-//         }
-//     }
-        
-//     for (int i(0); i < SIZE; ++i)
-//     {
-//         aux2[b[i][0]-1]++;
-//     }
-    
-//     for (int i(0); i < SIZE; ++i)
-//     {
-//        std::cout << " " << aux[i];
-//     }
-//     for (int i(0); i < SIZE; ++i)
-//     {
-//        std::cout << " " << aux2[i];
-//     }
-    
-//     if(cont == 9){
-//         return -1;
-//     }else{
-//         return 0;
-//     }
-// }
+int CheckerRows( std::vector<int> v ){
+    int array[]{0,0,0,0,0,0,0,0,0};
+    for (int x : v){
+        array[x] += 1;
+        if(array[x] == 2){
+            return 0;
+        }
+    }
+    return 1;
+}
 
 bool is_valid( short b[SIZE][SIZE] )
 {
-    int control(0);
-    // control = CheckerColsAndRows( b );
-    if (control)
-        return true; // This is just a stub. Replace it as needed.
-    else
-        return false;
+    std::vector<int> vLine;
+    int cont(0);
+    for (int i(0); i < SIZE; ++i){
+        vLine.clear();
+        std::copy(b[i], b[i] + SIZE, vLine);
+        cont = CheckerRows(vLine);
+        if(cont == 0){
+            return false;
+        }
+    }
+    for (int i(0); i < SIZE; ++i){
+        vLine.clear();
+        for (int j(0); j < SIZE; ++j)
+           vLine.push_back(b[i][j]); 
         
+        cont = CheckerRows(vLine);
+        if(cont == 0){
+            return false;
+        }
+    }
+    for (int i(0); i < SIZE; i += 3){
+        vLine.clear();
+        for (int j(i); j < i+3; ++j) 
+            for (int h(i); h < i+3; ++h)
+                vLine.push_back(b[j][h]); 
+
+        cont = CheckerRows(vLine);
+        if(cont == 0){
+            return false;
+        }
+    }
+    
+
+    
+    return true; // This is just a stub. Replace it as needed.    
 }
 
 
