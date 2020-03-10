@@ -35,15 +35,18 @@ bool is_valid( short b[SIZE][SIZE] )
     std::vector<int> vLine;
     int cont(0);
     for (int i(0); i < SIZE; ++i){
-        vLine.clear();
-        std::copy(b[i], b[i] + SIZE, vLine);
+        vLine.erase(vLine.begin(),vLine.end());
+        // std::copy(b[i], b[i] + SIZE, vLine.begin());
+        for (int j(0); j < SIZE; ++j)
+           vLine.push_back(b[j][i]); 
+
         cont = CheckerRows(vLine);
         if(cont == 0){
             return false;
         }
     }
     for (int i(0); i < SIZE; ++i){
-        vLine.clear();
+        vLine.erase(vLine.begin(),vLine.end());
         for (int j(0); j < SIZE; ++j)
            vLine.push_back(b[i][j]); 
         
@@ -53,11 +56,14 @@ bool is_valid( short b[SIZE][SIZE] )
         }
     }
     for (int i(0); i < SIZE; i += 3){
-        vLine.clear();
-        for (int j(i); j < i+3; ++j) 
-            for (int h(i); h < i+3; ++h)
-                vLine.push_back(b[j][h]); 
-
+        vLine.erase(vLine.begin(),vLine.end());
+        for (int c(0); c < SIZE; c += 3){
+          for (int j(i); j < i+3; ++j){
+            for (int h(c); h < c+3; ++h){
+               vLine.push_back(b[j][h]); 
+            }
+          } 
+        }  
         cont = CheckerRows(vLine);
         if(cont == 0){
             return false;
