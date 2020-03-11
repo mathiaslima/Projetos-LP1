@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <sstream>
 #include <vector>
+#include <fstream>
 
 #define EMPTY short(0)
 #define SIZE 9
@@ -85,7 +86,7 @@ bool is_valid( short b[SIZE][SIZE] )
 
 int main(void)
 {
-
+/*
     short boards[][SIZE][SIZE] {
         {
             { 1, 3, 4, 6, 7, 8, 5, 9, 2 },
@@ -188,23 +189,35 @@ int main(void)
             { 7, 3, 9, 2, 4, 1, 8, 5, 6 },
             { 9, 1, 5, 3, 7, 6, 2, 8, 4 },
             { 3, 5, 2, 8, 6, 4, 1, 7, 9 }
+        }for(int i(0); i < SIZE; i++){
+        for(int j(0); j < SIZE; j++){
+            Take >> board[i][j];
         }
+    }
     };
+*/
 
-
-
+    short board[SIZE][SIZE];
     // TODO: Make the code below work, instead of the ugly code above.
+    std::ifstream Take;
+    Take.open("boards.txt"); //here take is an text
+
 
     int n_boards{ 8 }; // Number of boards...
-    for ( int i{0}; i < n_boards ; ++i )
+    for ( int i{0}; i < 8 ; ++i )
     {
+        for(int i(0); i < SIZE; i++){
+            for(int j(0); j < SIZE; j++){
+                Take >> board[i][j];
+            }
+        }
         std::cout << "Board #" << (i+1) << ": \n";
-        print( boards[i] );
-        std::cout << "Is valid? " << std::boolalpha << is_valid( boards[i] ) << std::endl;
+        print( board );
+        std::cout << "Is valid? " << std::boolalpha << is_valid( board ) << std::endl;
         std::cout << "\n";
     }
 
-
+    Take.close();
 
     return 0;
 }
