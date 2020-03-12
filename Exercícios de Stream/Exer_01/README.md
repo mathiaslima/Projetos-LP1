@@ -38,6 +38,6 @@ de manipulação de fluxo de maneira a produzir a seguinte saída:
 
 <b>Importante</b>: Seu código deve ser desenvolvido de tal maneira que se for necessário acrescentar
 um campo extra no cabeçalho da tabela, bastaria incluir o novo nome em fieldNames , sem ser
-necessário alterar a função printHeader.
+necessário alterar a função ``printHeader``.
 
 
