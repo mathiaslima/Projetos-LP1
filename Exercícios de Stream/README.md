@@ -7,4 +7,6 @@ e do operador de extração >> de informações de um fluxo.
 
 Para mais informações sobre fluxo, recomenda-se visitar http://en.cppreference.com/w/
 cpp/io, que oferece uma visão geral de referência sobre fluxos, e http://www.cplusplus.com/
-doc/tutorial/basic_io, onde você pode encontrar um tutorial básico sobre manipulação de entrada/saída de dados em C++.
+doc/tutorial/basic_io, onde você pode encontrar um tutorial básico sobre manipulação de 
+entrada/saída de dados em C++.
+
