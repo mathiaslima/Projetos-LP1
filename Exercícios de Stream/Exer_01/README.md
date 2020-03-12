@@ -5,7 +5,7 @@ na saída padrão o cabeçalho de uma tabela. Os rótulos de cada coluna do cabe
 especificados no próprio programa (i.e. hard-coded) através de um vetor de strings. Confira abaixo
 o esqueleto geral do programa:
 
-<blockquote>
+```
 1 #include < iostream >
 2 #include < iomanip >
 3 #include < vector >
@@ -24,4 +24,4 @@ o esqueleto geral do programa:
 16 printHeader ( fieldNames ); // Imprimir cabecalho da tabela .
 17 return EXIT_SUCCESS ;
 18 }
-</blockquote>
+```
