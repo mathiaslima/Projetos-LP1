@@ -25,3 +25,19 @@ o esqueleto geral do programa:
 17 return EXIT_SUCCESS ;
 18 }
 ```
+
+Cada campo deve ser delimitado por linhas verticais ‘|’ e conter um espaço em branco de cada
+lado. Em resumo, o cabeçalho deve ser gerado automaticamente por meio de laços e dos comandos
+de manipulação de fluxo de maneira a produzir a seguinte saída:
+
+```
++------+------------+----------------+
+| ITEM | QUANTIDADE | VALOR UNITARIO |
++------+------------+----------------+
+```
+
+<b>Importante</b>: Seu código deve ser desenvolvido de tal maneira que se for necessário acrescentar
+um campo extra no cabeçalho da tabela, bastaria incluir o novo nome em fieldNames , sem ser
+necessário alterar a função printHeader.
+
+
