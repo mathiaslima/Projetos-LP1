@@ -18,7 +18,6 @@ int getInteger( std::string inputStr_ ){
 
 }
 
-
 int main(){
 
     auto val = getInteger("Forneca um inteiro : ");
