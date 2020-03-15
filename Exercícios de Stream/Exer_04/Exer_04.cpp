@@ -26,21 +26,12 @@ void readFile( std::string urlTitle, std::string urlNumbers, std::vector< std::s
         titles.push_back(title);
     }
 
-    for(std::string n : numbers){
-        std::cout << n << "\n";
-    }
-
-    for(std::string n : titles){
-        std::cout << n << "\n";
-    }
-
-
     fileNumber.close();
     fileTitle.close();
 
 }
 
-void  printDataTableAndWriteInFile( std::string urlTitle, std::string urlNumbers, std::vector< std::string > & numbers, std::vector< std::string > & titles )
+void  WriteInFile( std::string urlTitle, std::string urlNumbers, std::vector< std::string > & numbers, std::vector< std::string > & titles )
 {
     std::string line;
     std::ofstream fileDataTable("DataTable.txt", std::ios::out);
@@ -82,6 +73,19 @@ void  printDataTableAndWriteInFile( std::string urlTitle, std::string urlNumbers
     fileDataTable.close();
 }
 
+void printFile(std::string urlDataTable){
+    std::string line;
+    std::ifstream dataTable;
+    dataTable.open(urlDataTable, std::ios::in);
+    std::string number;
+
+    while( std::getline(dataTable, line) )
+    {
+        std::cout << line << std::endl;
+    }
+
+
+}
 
 // int main(int argc, std::string *argv[])
 int main()
@@ -89,7 +93,8 @@ int main()
     std::vector<std::string> numbers;
     std::vector<std::string> titles;
     readFile("inputRotulos.txt","inputNumeros.txt", numbers, titles);
-    printDataTableAndWriteInFile("inputRotulos.txt","inputNumeros.txt", numbers, titles);
+    WriteInFile("inputRotulos.txt","inputNumeros.txt", numbers, titles);
+    printFile("DataTable.txt");
 
 }
 
