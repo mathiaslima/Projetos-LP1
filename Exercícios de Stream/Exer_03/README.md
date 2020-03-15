@@ -13,7 +13,7 @@ std::cin >> val;
 e o usuário digitar, por engano, 12t no lugar do valor 126, a variável val armazenará o valor
 incorreto 12.
 
-Desenvolva uma função denominada `int getInteger(string msg_)` que apresenta uma mensagem `msg_` na tela solicitando um inteiro, recebe o inteiro e o retorna para o <b>código</b> cliente. A
+Desenvolva uma função denominada `int getInteger(string msg_)` que apresenta uma mensagem `msg_` na tela solicitando um inteiro, recebe o inteiro e o retorna para o <b>código cliente</b>. A
 função deve ficar em laço solicitando um valor até que o usuário forneça um valor inteiro correto.
 
 Na sua solução lembre de usar os métodos como `fail`, `eof`, a função `getline` e a nova
